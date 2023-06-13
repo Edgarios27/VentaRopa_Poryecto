@@ -1,0 +1,119 @@
+/*--------ADMIN--------*/
+
+.btn-create {
+    display: flex; 
+    margin: 0px 50px;
+    padding: 10px;
+    width: 170px;
+    transition: all 0.5s ease;
+}
+
+.btn-create:hover {
+    color: white;
+    background-color: #464646;
+}
+
+.table {
+    margin-left: 50px;
+    margin-top: 30px;
+    width: 980px;
+    display: flex;
+    flex-direction: column;
+}
+
+.table-product-detail {
+    display: flex;
+}
+
+.table-id {
+    font-weight: bold;
+    width: 50px;
+}
+
+.table-title {
+    font-weight: bold;
+    width: 800px;
+}
+
+.table-actions{
+    font-weight: bold;
+}
+
+td {
+    padding: 20px;
+    vertical-align: middle;
+ }
+ 
+ th:last-child, td:last-child {
+    margin-right: 0;
+ }
+
+.table-products {
+    border-bottom: 2px solid black; 
+    display: flex;
+    flex-direction: row;
+    transition: all 0.5s ease;
+}
+
+.table-products:hover{
+    color: white;
+    transform: scale(1.03);
+    background-color: #464646;
+    border-bottom: none;
+}
+.tableProducts-id, .tableProducts-title, .tableProducts-actions {
+    padding-right: 20px;
+  }
+
+.tableProducts-id {
+    width: 50px;
+}
+.tableProducts-title {
+    width: 800px;
+}
+
+.btn-edit {
+    margin-right: 10px;
+}
+
+.btn-edit:hover {
+    color: white;
+}
+
+.btn-delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/*--------CREATE--------*/
+h3{
+    margin: 50px 50px;
+}
+
+.mb-3 {
+    margin-left: 50px;
+    margin-bottom: 30px;
+    display: flex;
+}
+
+.form-label {
+    margin-right: 10px;
+    width: 80px;
+}
+
+.btn-store {
+    display: flex;
+    margin-top: 40px;
+    margin-left: 50px;
+    color: white;
+    padding: 10px;
+    border: none;
+    background-color: #252525;
+    transition: all 0.5s ease;
+}
+
+.btn-store:hover{
+    background-color: #464646;
+    cursor: pointer;
+}
