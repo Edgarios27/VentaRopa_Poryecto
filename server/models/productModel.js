@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
 const productSchema = new Schema(
    {
@@ -10,6 +10,20 @@ const productSchema = new Schema(
       image: { type: String }
    },
    { collection: 'Fake' }
-)
+);
 
-export default mongoose.model('productModel', productSchema)
+const productLoginSchema = new Schema(
+   {
+      name: { type: String },
+      email: { type: String },
+      password: { type: String },
+      isAdmin: { type: Boolean, default: false }
+   },
+   { collection: 'login', versionKey: false }
+);
+
+
+const productModel = mongoose.model('productModel', productSchema);
+const productLoginModel = mongoose.model('productLoginModel', productLoginSchema);
+
+export { productModel, productLoginModel };

@@ -10,18 +10,18 @@ const Administrador = () => {
   useEffect(() => {
     getFake()
   }, [])
-  //Procedimiento para mostrar todos los blogs
+  
+  // Procedimiento para mostrar todos los productos
   const getFake = async () => {
     const res = await axios.get(URI)
     setFake(res.data)
   }
-  //procedimiento para eliminar un producto
+
+  // Procedimiento para eliminar un producto
   const deleteProduct = async (id) => {
     await axios.delete(`${URI}${id}`)
     getFake()
   }
-
-
 
   return (
     <div className='container'>
@@ -33,10 +33,11 @@ const Administrador = () => {
               <tr>
                 <th>Id</th>
                 <th>Title</th>
-                <th>price</th>
-                <th>description</th>
-                <th>category</th>
-                <th>image</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Image</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -47,7 +48,9 @@ const Administrador = () => {
                   <td>{product.price}</td>
                   <td>{product.description}</td>
                   <td>{product.category}</td>
-                  <td>{product.image}</td>
+                  <td>
+                    <img src={product.image} alt="Product" className="product-image" />
+                  </td>
                   <td>
                     <Link to={`/edit/${product._id}`} className='btn btn-info'><i className="fa-solid fa-pen-to-square"></i></Link>
                     <button onClick={() => deleteProduct(product._id)} className='btn btn-danger'><i className="fa-solid fa-trash"></i></button>

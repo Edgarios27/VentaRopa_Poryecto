@@ -1,5 +1,13 @@
 /*--------ADMIN--------*/
 
+.product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 90%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
 .btn-create {
     display: flex; 
     margin: 0px 50px;

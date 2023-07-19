@@ -11,9 +11,20 @@ export const Mujer = () => {
 
   const buyProducts = (product) => {
     console.log(product);
-    setCart([...cart, product]);
+    const productExist = cart.find((item) => item.id === product.id);
+  
+    if (productExist) {
+      setCart(
+        cart.map((item) =>
+          item.id === product.id
+            ? { ...product, quanty: productExist.quanty + 1 }
+            : item
+        )
+      );
+    } else {
+      setCart([...cart, product]);
+    }
   };
-
   const filteredProducts = AllProducts.filter((product) => {
     return (
       product.category.toLowerCase() === "women's clothing" &&
@@ -50,13 +61,13 @@ export const Mujer = () => {
       </form>
       <div className='content'>
         {filteredProducts.map((product) => (
-          <div className='card el-wrapper' key={product.id}>
+          <div className='card el-wrapper' key={product._id}>
             <div className='box-up'>
-              <Link to={`/Descripcion/${product.id}`}>
+              <Link to={`/Descripcion/${product._id}`}>
                 <img className='img' src={product.image} alt={product.title} />
               </Link>
               <div className='info-inner'>
-                <Link to={`/Descripcion/${product.id}`}>
+                <Link to={`/Descripcion/${product._id}`}>
                   <span className='p-name'>{product.title}</span>
                 </Link>
               </div>

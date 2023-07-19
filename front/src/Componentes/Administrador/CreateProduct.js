@@ -85,7 +85,6 @@ const CompCreateProduct = () => {
                 </div>
                 <button type="submit" className='btn btn-primary'>Store</button>
             </form>
-
         </div>
     )
 }

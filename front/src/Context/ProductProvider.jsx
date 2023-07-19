@@ -43,15 +43,25 @@ export const ProductProvider = ({ children }) => {
 	}, []);
 
 	const buyProducts = (per) => {
-		const productrepeat = cart.find((item) => item.id === per.id);
+	// 	const productrepeat = cart.find((item) => item._id === per._id);
 
-		if (productrepeat) {
-			setCart(cart.map((item) => (item.id === per.id ? { ...per, quanty: productrepeat.quanty + 1 } : item)));
-		} else {
-			setCart([...cart, per]);
-		}
-	};
+	// 	if (productrepeat) {
+	// 		setCart(cart.map((item) => (item._id === per._id ? { ...per, quanty: productrepeat.quanty + 1 } : item)));
+	// 	} else {
+	// 		setCart([...cart, per]);
+	// 	}
+	// };
+	const productrepeat = cart.findIndex((item) => item._id === per._id);
 
+	if (productrepeat !== -1) {
+	  const updatedCart = [...cart];
+	  const existingItem = updatedCart[productrepeat];
+	  existingItem.quanty += 1;
+	  setCart(updatedCart);
+	} else {
+	  setCart([...cart, { ...per, quanty: 1 }]);
+	}
+}
 	return (
 		<ProductContext.Provider
 			value={{

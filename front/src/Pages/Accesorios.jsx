@@ -10,9 +10,20 @@ export const Accesorios = () => {
 
   const buyProducts = (product) => {
     console.log(product);
-    setCart([...cart, product]);
+    const productExist = cart.find((item) => item.id === product.id);
+  
+    if (productExist) {
+      setCart(
+        cart.map((item) =>
+          item.id === product.id
+            ? { ...product, quanty: productExist.quanty + 1 }
+            : item
+        )
+      );
+    } else {
+      setCart([...cart, product]);
+    }
   };
-
   const filteredProducts = AllProducts.filter((product) => {
     return (
       product.category.toLowerCase().includes('jewelery') ||

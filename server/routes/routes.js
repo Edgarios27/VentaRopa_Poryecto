@@ -1,11 +1,23 @@
 import express from 'express'
 import { createProduct, deleteProduct, getAllProducts, getProduct, updateProduct } from '../controller/productController.js'
-const router = express.Router()
+import { getAllUsers, getUser, createUser, updateUser, deleteUser, loginUser } from '../controller/productModelLogin.js'
 
-router.get('/', getAllProducts)
-router.get('/:id', getProduct)
-router.post('/',createProduct)
-router.put('/:id',updateProduct)
-router.delete('/:id',deleteProduct)
+export const productRoutes = express.Router()
 
-export default router
+productRoutes.get('/', getAllProducts,)
+productRoutes.get('/:id', getProduct)
+productRoutes.post('/', createProduct)
+productRoutes.put('/:id', updateProduct)
+productRoutes.delete('/:id', deleteProduct)
+
+export const loginRoutes = express.Router()
+
+loginRoutes.get('/', getAllUsers);
+loginRoutes.get('/:id', getUser);
+loginRoutes.post('/', createUser);
+loginRoutes.post('/login', loginUser); // Ruta para iniciar sesión
+loginRoutes.put('/:id', updateUser);
+loginRoutes.delete('/:id', deleteUser);
+
+
+
